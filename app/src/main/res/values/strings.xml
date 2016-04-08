@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">MakeupDictionary</string>
+
+    <string-array name="face_cats">
+        <item>Brow</item>
+        <item>Eye</item>
+        <item>Face</item>
+        <item>Lip</item>
+        <item>Tools</item>
+    </string-array>
+
+    <string-array name="lip_prod">
+        <item>Lip Balm</item>
+        <item>Lip Gloss</item>
+        <item>Lip Liner</item>
+        <item>Lip Scrub</item>
+        <item>Lipstick</item>
+        <item>Liquid Lipstick</item>
+    </string-array>
+
+    <string-array name="face_prod">
+        <item>Blush</item>
+        <item>Bronzer</item>
+        <item>Concealer></item>
+        <item>Face Powder</item>
+        <item>Foundation</item>
+        <item>Highlighter</item>
+        <item>Primer</item>
+    </string-array>
+
+    <string-array name="eye_prod">
+        <item>Eye Shadow Palette</item>
+        <item>Eye Shadow Primer</item>
+        <item>Eye Singles</item>
+        <item>Eyeliner</item>
+        <item>Eyelahses</item>
+        <item>Pigments</item>
+    </string-array>
+
+    <string-array name="brow_prod">
+        <item>Gel</item>
+        <item>Pencil</item>
+        <item>Powder</item>
+    </string-array>
+
+    <string-array name="tool">
+        <item>Brushes</item>
+        <item>Sponge</item>
+        <item>Other</item>
+    </string-array>
+
+</resources>
