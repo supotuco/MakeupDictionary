@@ -43,7 +43,7 @@
         <item>Powder</item>
     </string-array>
 
-    <string-array name="tool">
+    <string-array name="tool_prod">
         <item>Brushes</item>
         <item>Sponge</item>
         <item>Other</item>

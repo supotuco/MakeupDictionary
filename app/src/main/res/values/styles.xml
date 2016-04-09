@@ -8,4 +8,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="FrameTheme">
+        <item name="android:background">@color/mint_green</item>
+        <item name="android:textColor">@color/light_pink</item>
+    </style>
+
+
 </resources>

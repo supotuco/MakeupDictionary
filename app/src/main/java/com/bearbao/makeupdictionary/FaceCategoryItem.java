@@ -6,12 +6,10 @@ package com.bearbao.makeupdictionary;
 public class FaceCategoryItem {
     private String category;
     private int category_pic_id;
-    private int category_position;
 
-    public FaceCategoryItem(String category, int category_pic_id, int category_position) {
+    public FaceCategoryItem(String category, int category_pic_id) {
         this.category = category;
         this.category_pic_id = category_pic_id;
-        this.category_position = category_position;
     }
 
     public String getCategory() {
@@ -30,11 +28,5 @@ public class FaceCategoryItem {
         this.category_pic_id = category_pic_id;
     }
 
-    public int getCategory_position() {
-        return category_position;
-    }
 
-    public void setCategory_position(int category_position) {
-        this.category_position = category_position;
-    }
 }
