@@ -15,7 +15,8 @@
         android:id="@+id/frag_container"
         android:theme="@style/FrameTheme"
         >
-
     </FrameLayout>
+
+
 
 </LinearLayout>

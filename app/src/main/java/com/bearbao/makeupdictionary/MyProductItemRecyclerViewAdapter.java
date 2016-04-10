@@ -11,11 +11,7 @@ import com.bearbao.makeupdictionary.ProductItemFragment.OnProductFragmentInterac
 
 import java.util.List;
 
-/**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
- * specified {@link OnProductFragmentInteractionListener}.
- * TODO: Replace the implementation with code for your data type.
- */
+
 public class MyProductItemRecyclerViewAdapter extends RecyclerView.Adapter<MyProductItemRecyclerViewAdapter.ViewHolder> {
 
     private final List<ProductItem> mValues;

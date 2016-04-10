@@ -31,8 +31,6 @@ public class ProductItemFragment extends Fragment {
     public ProductItemFragment() {
     }
 
-    // TODO: Customize parameter initialization
-    @SuppressWarnings("unused")
     public static ProductItemFragment newInstance(int stringRecourceId) {
         ProductItemFragment fragment = new ProductItemFragment();
         Bundle args = new Bundle();
@@ -111,7 +109,6 @@ public class ProductItemFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnProductFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onProductFragmentInteraction(String product);
     }
 }

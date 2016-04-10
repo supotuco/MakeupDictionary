@@ -7,11 +7,15 @@ import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
-import java.util.HashMap;
 
-public class MainActivity extends AppCompatActivity implements FaceCategoryItemFragment.OnCategoryFragmentInteractionListener, ProductItemFragment.OnProductFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements  FaceCategoryItemFragment.OnCategoryFragmentInteractionListener,
+                                                                ProductItemFragment.OnProductFragmentInteractionListener,
+                                                                FragmentManager.OnBackStackChangedListener
+                                {
 
     private final int NUMBER_FACE_CATEGORIES = 5;
     Toolbar toolbar;
@@ -29,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements FaceCategoryItemF
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
+
         setSupportActionBar(toolbar);
 
 
@@ -39,14 +44,50 @@ public class MainActivity extends AppCompatActivity implements FaceCategoryItemF
         productItemFragments[3] = ProductItemFragment.newInstance(R.array.lip_prod);
         productItemFragments[4] = ProductItemFragment.newInstance(R.array.tool_prod);
 
-        FragmentManager manager = getFragmentManager();
+        getFragmentManager().addOnBackStackChangedListener(this);
 
-
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.frag_container, faceCategoryItemFragment);
-        transaction.commit();
+        getFragmentManager().beginTransaction()
+                            .add(R.id.frag_container, faceCategoryItemFragment)
+                            .addToBackStack(null)
+                            .commit();
 
     }
+
+                                    @Override
+                                    public void onBackStackChanged() {
+                                        if(getFragmentManager().getBackStackEntryCount() > 1){
+                                            getSupportActionBar().setHomeButtonEnabled(true);
+                                            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                                        }else{
+                                            getSupportActionBar().setHomeButtonEnabled(true);
+                                            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+                                        }
+                                    }
+
+                                    @Override
+                                    public boolean onOptionsItemSelected(MenuItem item) {
+                                        if(item.getItemId() == android.R.id.home){
+                                            if(getFragmentManager().getBackStackEntryCount() > 0){
+                                                getFragmentManager().popBackStack();
+                                            }else{
+                                                getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+                                            }
+                                        }
+
+                                        return super.onOptionsItemSelected(item);
+                                    }
+
+                                    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Toast.makeText(this,"Back Pressed", Toast.LENGTH_LONG).show();
+    }
+
+
+    public void popBackStack(View view){
+        this.getFragmentManager().popBackStack();
+    }
+
 
     @Override
     public void onProductFragmentInteraction(String product){
@@ -70,9 +111,8 @@ public class MainActivity extends AppCompatActivity implements FaceCategoryItemF
 
         FragmentManager manager = getFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.frag_container, productItemFragments[index]);
-        transaction.setTransition(FragmentTransaction.TRANSIT_ENTER_MASK);
-        transaction.commit();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        transaction.replace(R.id.frag_container, productItemFragments[index], categories[index])
+                .addToBackStack(null)
+                .commit();
     }
 }

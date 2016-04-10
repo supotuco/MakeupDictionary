@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toolbar;
 
 
 import java.util.ArrayList;
@@ -23,11 +24,7 @@ import java.util.List;
  * interface.
  */
 public class FaceCategoryItemFragment extends Fragment {
-
-    // TODO: Customize parameter argument names
-    private static final String ARG_COLUMN_COUNT = "column-count";
-    // TODO: Customize parameters
-    private int mColumnCount = 1;
+    
     private OnCategoryFragmentInteractionListener mListener;
 
     /**
@@ -37,8 +34,7 @@ public class FaceCategoryItemFragment extends Fragment {
     public FaceCategoryItemFragment() {
     }
 
-    // TODO: Customize parameter initialization
-    @SuppressWarnings("unused")
+
     public static FaceCategoryItemFragment newInstance() {
         FaceCategoryItemFragment fragment = new FaceCategoryItemFragment();
 
@@ -63,7 +59,6 @@ public class FaceCategoryItemFragment extends Fragment {
 
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
-            // TODO: create an icon for each face category
             String[] face_cagetories = context.getResources().getStringArray(R.array.face_cats);
             ArrayList<FaceCategoryItem> faceCategoryList = new ArrayList<>(face_cagetories.length);
 
@@ -97,6 +92,22 @@ public class FaceCategoryItemFragment extends Fragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnCategoryFragmentInteractionListener");
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
     }
 
     @Override
